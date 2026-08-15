@@ -27,6 +27,7 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 - [🛠️ 仿真器与噪声插件](docs/simulators_tools.md)
 - [📖 研究综述与可行性分析](docs/research_notes.md)
 - [🧭 研究分类图谱（Taxonomy）](docs/taxonomy.md)
+- [🧩 研究空白与开放问题（含 Isaac Sim 6.0 结构光能力盘点）](docs/open_problems.md)
 - [🗺️ 建议研究路线图](docs/roadmap.md)
 - [📄 完整论文清单（含注释表格）](docs/papers.md)
 
@@ -177,6 +178,7 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 | 文档 | 内容 |
 |---|---|
 | [研究综述与可行性分析](docs/research_notes.md) | 噪声物理来源、方法分类、可行性结论、研究空白 |
+| [研究空白与开放问题](docs/open_problems.md) | 结构光相机方向 10 大开放问题 + **Isaac Sim 6.0 能力盘点** + 选题优先级 |
 | [精读笔记：结构光物理仿真（ICRA 2024）](docs/paper_notes/close-sim2real-gap-structured-light.md) | 格雷码结构光全链路仿真，"噪声自然涌现"范式 |
 | [精读笔记：ByteDance CDM（ICLR 2026）](docs/paper_notes/manipulation-as-in-simulation.md) | 学真实噪声模式→训练去噪插件，零样本仿真→真实操作 |
 | [研究分类图谱](docs/taxonomy.md) | Mermaid 分类图 + 方法论对比 |

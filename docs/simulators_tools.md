@@ -8,7 +8,7 @@
 |---|---|---|---|
 | **Habitat-Sim** | 深度（透视/全景） | ✅ `GaussianDepthNoiseModel`、`RedwoodDepthNoiseModel`（基于 Redwood 数据集的 Kinect 噪声统计）、bias 等 | 文档：[noise_models](https://aihabitat.org/docs/habitat-sim/habitat_sim.sensors.noise_models.html) · [RedwoodNoiseModel](https://aihabitat.org/docs/habitat-sim/habitat_sim.sensors.noise_models.RedwoodDepthNoiseModel.html) · 实现：[VisualSensor.cpp](https://github.com/facebookresearch/habitat-sim/blob/main/src/esp/sensor/VisualSensor.cpp) |
 | **Gazebo / gz-sensors** | 深度相机（深度相机插件） | ✅ `ImageNoise`（高斯等）；生态插件 `gazebo_noisy_depth_camera`、`realsense_gazebo_plugin` | [gz-sensors ImageNoise](https://github.com/gazebosim/gz-sensors/blob/main/src/ImageNoise.cc) · [gazebo_noisy_depth_camera](https://github.com/peci1/gazebo_noisy_depth_camera) · [realsense_gazebo_plugin](https://github.com/PIC4SeR/realsense_gazebo_plugin) · 社区讨论：[Noise model for depth camera simulation](https://discourse.openrobotics.org/t/noise-model-for-depth-camera-simulation/36385) |
-| **NVIDIA Isaac Sim** | ToF 相机传感器、深度 | ✅ 内置 ToF 传感器（含多径等物理仿真选项）；厂商集成 iToF（e-con、Orbbec） | 论坛：[Simulate Time-of-Flight 3D Sensor](https://forums.developer.nvidia.com/t/simulate-time-of-flight-3d-sensor/240304) · [e-con iToF in Isaac Sim](https://www.e-consystems.com/blog/camera/technology/robotics-development-just-got-faster-smarter-e-con-systems-itof-3d-camera-comes-to-nvidia-isaac-sim/) |
+| **NVIDIA Isaac Sim** | ToF 相机传感器、深度、**结构光相机（6.0 新增）** | ✅ 内置 ToF 传感器（含多径等物理仿真选项）；**6.0 新增 `StructuredLightCamera`（`isaacsim.sensors.experimental.rtx`）**：投影仪=RectLight 簇（图案贴图+方向纹理）、仿真时间驱动的图案切换（格雷码/相移/De Bruijn，亚毫秒有理数精度）、RTX 光线追踪成像；⚠️ 不含深度重建与噪声模型（需自行实现解码/三角化） | 论坛：[Simulate Time-of-Flight 3D Sensor](https://forums.developer.nvidia.com/t/simulate-time-of-flight-3d-sensor/240304) · [e-con iToF in Isaac Sim](https://www.e-consystems.com/blog/camera/technology/robotics-development-just-got-faster-smarter-e-con-systems-itof-3d-camera-comes-to-nvidia-isaac-sim/) · 📄 [结构光相机文档](https://docs.isaacsim.omniverse.nvidia.com/latest/sensors/isaacsim_sensors_camera_structured_light.html) · 🔍 [能力盘点与开放问题](../docs/open_problems.md) |
 | **AirSim** | 深度/视差/法线视图 | ✅ 相机噪声与干扰（Camera noise & interference）设置 | [AirSim settings](https://microsoft.github.io/AirSim/settings/) |
 | **CARLA** | LiDAR / 相机 | ✅ LiDAR 噪声参数（`dropoff_intensity_limit`、general noise 等） | [CARLA ref_sensors](https://github.com/carla-simulator/carla/blob/main/Docs/ref_sensors.md) |
 
@@ -20,6 +20,14 @@
 | **render_kinect** | Blender 渲染 Kinect 风格带噪深度图（机器人抓取合成数据常用） | [GitHub](https://github.com/jbohg/render_kinect) |
 | **VIRTUS-FPP** | 在 NVIDIA Isaac Sim 中建模工业条纹投影（FPP）结构光虚拟传感器 | [arXiv:2509.22685](https://arxiv.org/abs/2509.22685) |
 | Blender 结构光扫描仿真 | 投影-相机结构光 3D 扫描仿真（Puljcan & Zoraja） | [PDF](https://www.bib.irb.hr:8443/1242928/download/1242928.ID29_Simulation_of_Structured_Light_3D_Scanning_using_Blender_submission.pdf) |
+
+### 结构光仿真相关研究工具/基准（补充）
+
+| 工具/论文 | 说明 | 链接 |
+|---|---|---|
+| PBR 结构光扫描仪基准（Medeiros et al.） | 用物理渲染（PBR）基准评测结构光扫描仪（经典） | [Computer Graphics Forum 2014](https://diglib.eg.org/items/365c6d23-1a4f-4d17-85b7-8a3e8b9e97b9/full) · DOI 10.1111/cgf.12475 |
+| 高速结构光相机实时仿真器（CEA） | 面向机器人的高速结构光相机实时仿真 + 最优位姿评估（2025） | [HAL: cea-05080693](https://cea.hal.science/LIST/cea-05080693v1) |
+| 激光 vs 仿真散斑对比（Khan & Kim） | 对比激光散斑与仿真散斑对单帧 3D 重建的影响 | [Applied Physics Letters 2021, 119(13):131108](https://aipp.silverchair.com/aip/apl/article-abstract/119/13/131108/40864/Comparative-analysis-of-laser-and-simulated-speckle) |
 
 ## 可参考的"注入"实现范式
 
