@@ -65,7 +65,7 @@
 - ToF：Keller et al. (SimVis 2007) 仿真框架；AMCW ToF 多径仿真 (Sensors 2018)。
 - **结构光（Kinect v1 散斑 / 条纹投影 FPP / 主动立体）**：
   - 散斑结构光：公开文献**相对稀少**——Landau et al. (T-CYB 2016) 从 IR 散斑出发物理仿真 Kinect 深度（见 3.1）；Iversen & Kraft (EL 2017) 走经验噪声模型路线。
-  - 工业条纹投影（FPP）：近年兴起虚拟传感器建模——**"Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation" (arXiv:2407.12449, 2024)** 直接用物理结构光合成数据缩小 sim2real 差距（与你的目标最重合）；**VIRTUS-FPP (arXiv:2509.22685)** 在 Isaac Sim 中建模 FPP 传感器；SPIE 2025 给出了照片级真实合成数据的 FPP 基准。
+  - 工业条纹投影（FPP）：近年兴起虚拟传感器建模——**Bai et al. "Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation" (ICRA 2024, arXiv:2407.12449)** 用 Blender 光线追踪物理仿真格雷码结构光全链路（投影→解码→三角化重建），噪声由解码错误自然涌现（与真实噪声同源），实测显著缩小检测/分割 sim2real gap（📖 [精读笔记](paper_notes/close-sim2real-gap-structured-light.md)）；**VIRTUS-FPP (arXiv:2509.22685)** 在 Isaac Sim 中建模 FPP 传感器；SPIE 2025 给出了照片级真实合成数据的 FPP 基准。
   - 主动立体：**Zhang, Xu et al. (T-RO 2023, arXiv:2201.11924)** 物理仿真 RealSense，显著缩小深度 sim2real 差距——与你的目标最接近的论文之一，强烈建议精读。
   - 学习式结构光成像（相邻）：Neural Feature Decoding (SIGGRAPH Asia 2025)、数字孪生+物理感知学习 (npj Nanophotonics 2025)。
 - LiDAR：Physically-Based Simulation of Automotive LiDAR (arXiv:2512.05932)；LiDARsim 的重合成路线（见 3.3）。

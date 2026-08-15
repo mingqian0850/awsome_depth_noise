@@ -59,8 +59,8 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 
 **🔦 结构光（散斑 Kinect v1 / 条纹投影 FPP / 主动立体）**
 
-- **Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation** — *arXiv:2407.12449*, 2024 · [arXiv](https://arxiv.org/abs/2407.12449) · [IEEE Xplore](https://ieeexplore.ieee.org/document/10611401)
-  - ⭐⭐⭐ 物理结构光合成数据仿真，**直接以"缩小 sim2real 差距"为目标** —— 与你设想的"真实物理噪声注入"最重合的工作之一。
+- **Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation** — K. Bai, L. Zhang, Z. Chen, F. Wan, J. Zhang · *ICRA 2024* · [arXiv:2407.12449](https://arxiv.org/abs/2407.12449) · DOI 10.48550/arXiv.2407.12449
+  - ⭐⭐⭐ 用 Blender 光线追踪**物理仿真格雷码结构光全链路**（投影→解码→三角化重建），深度噪声由解码错误自然涌现，与真实结构光相机同源——**与"真实物理噪声注入"设想最重合的工作之一**。📖 [精读笔记](docs/paper_notes/close-sim2real-gap-structured-light.md)
 - **VIRTUS-FPP: Virtual Sensor Modeling for Fringe Projection Profilometry in NVIDIA Isaac Sim** — *arXiv:2509.22685*, 2025 · [arXiv](https://arxiv.org/abs/2509.22685) · [IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/11554253)
   - ⭐ 工业条纹投影（FPP）结构光在 Isaac Sim 中的虚拟传感器建模（OptiX 光线追踪），用于生成学习训练数据。
 - **Comprehensive Machine Learning Benchmarking for Fringe Projection Profilometry with Photorealistic Synthetic Data** — *SPIE 2025* · DOI 10.1117/12.3082257 · [arXiv:2601.08900](https://arxiv.org/abs/2601.08900)
@@ -171,6 +171,7 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 | 文档 | 内容 |
 |---|---|
 | [研究综述与可行性分析](docs/research_notes.md) | 噪声物理来源、方法分类、可行性结论、研究空白 |
+| [精读笔记](docs/paper_notes/close-sim2real-gap-structured-light.md) | 结构光物理仿真（ICRA 2024）逐段精读 |
 | [研究分类图谱](docs/taxonomy.md) | Mermaid 分类图 + 方法论对比 |
 | [完整论文清单](docs/papers.md) | 全部论文的表格化清单（含 arXiv/DOI/一句话注释） |
 | [数据集与基准](docs/datasets.md) | 真实/合成深度数据集、噪声评测基准 |
