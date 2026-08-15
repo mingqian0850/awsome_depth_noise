@@ -12,6 +12,15 @@
 | **AirSim** | 深度/视差/法线视图 | ✅ 相机噪声与干扰（Camera noise & interference）设置 | [AirSim settings](https://microsoft.github.io/AirSim/settings/) |
 | **CARLA** | LiDAR / 相机 | ✅ LiDAR 噪声参数（`dropoff_intensity_limit`、general noise 等） | [CARLA ref_sensors](https://github.com/carla-simulator/carla/blob/main/Docs/ref_sensors.md) |
 
+## 结构光（Structured Light）相关工具
+
+| 工具 | 说明 | 链接 |
+|---|---|---|
+| **BlenSor**（Blender 传感器仿真） | Blender 中仿真 Kinect 深度/ToF/LiDAR 传感器（含噪声模型），机器人领域经典工具 | [官网](https://www.blensor.org/) · [论文：BlenSor: Blender Sensor Simulation Toolbox (ISVC 2011)](https://dblp.org/rec/conf/isvc/GschwandtnerKUP11.html) |
+| **render_kinect** | Blender 渲染 Kinect 风格带噪深度图（机器人抓取合成数据常用） | [GitHub](https://github.com/jbohg/render_kinect) |
+| **VIRTUS-FPP** | 在 NVIDIA Isaac Sim 中建模工业条纹投影（FPP）结构光虚拟传感器 | [arXiv:2509.22685](https://arxiv.org/abs/2509.22685) |
+| Blender 结构光扫描仿真 | 投影-相机结构光 3D 扫描仿真（Puljcan & Zoraja） | [PDF](https://www.bib.irb.hr:8443/1242928/download/1242928.ID29_Simulation_of_Structured_Light_3D_Scanning_using_Blender_submission.pdf) |
+
 ## 可参考的"注入"实现范式
 
 1. **解析模型注入**（最简单）：按 σ(d) 曲线 + 高斯/泊松噪声 + 缺失掩码 + 空间相关核，对渲染出的干净深度加噪。Habitat `RedwoodDepthNoiseModel` 即此类。

@@ -63,7 +63,11 @@
 ### 3.2 物理仿真（第一性原理）
 
 - ToF：Keller et al. (SimVis 2007) 仿真框架；AMCW ToF 多径仿真 (Sensors 2018)。
-- 主动立体：**Zhang, Xu et al. (T-RO 2023, arXiv:2201.11924)** 物理仿真 RealSense，显著缩小深度 sim2real 差距——与你的目标最接近的论文之一，强烈建议精读。
+- **结构光（Kinect v1 散斑 / 条纹投影 FPP / 主动立体）**：
+  - 散斑结构光：公开文献**相对稀少**——Landau et al. (T-CYB 2016) 从 IR 散斑出发物理仿真 Kinect 深度（见 3.1）；Iversen & Kraft (EL 2017) 走经验噪声模型路线。
+  - 工业条纹投影（FPP）：近年兴起虚拟传感器建模——**"Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation" (arXiv:2407.12449, 2024)** 直接用物理结构光合成数据缩小 sim2real 差距（与你的目标最重合）；**VIRTUS-FPP (arXiv:2509.22685)** 在 Isaac Sim 中建模 FPP 传感器；SPIE 2025 给出了照片级真实合成数据的 FPP 基准。
+  - 主动立体：**Zhang, Xu et al. (T-RO 2023, arXiv:2201.11924)** 物理仿真 RealSense，显著缩小深度 sim2real 差距——与你的目标最接近的论文之一，强烈建议精读。
+  - 学习式结构光成像（相邻）：Neural Feature Decoding (SIGGRAPH Asia 2025)、数字孪生+物理感知学习 (npj Nanophotonics 2025)。
 - LiDAR：Physically-Based Simulation of Automotive LiDAR (arXiv:2512.05932)；LiDARsim 的重合成路线（见 3.3）。
 - 范式价值：**DeepToF (SIGGRAPH Asia 2018)** 用物理仿真器生成大量训练数据解决真实 ToF 多径问题——"物理仿真造数据 + 网络学真实域"的经典组合，可直接复用到"噪声注入"。
 
@@ -73,7 +77,8 @@
 
 1. **生成式噪声建模（学分布，再采样注入）**
    - RGB 域已成熟：Noise Flow (ICCV 2019, 归一化流)、**RNSD (AAAI 2025, 扩散模型条件噪声合成)**、SIDD 数据集 (CVPRW 2018)、Unprocessing (CVPR 2019)、物理噪声模型 (CVPR 2020)。
-   - 深度域几乎空白 → **研究机会**：把上述方法迁移到深度图/点云（条件变量：距离、反射率、入射角、曝光）。
+   - 深度域：**Sweeney et al. (ICRA 2019)** 监督学习直接预测深度图像逐像素噪声（"学习真实深度噪声"的直接范例）；**Quasi-Balanced Self-Training (arXiv:2203.03833)** 面向主动立体的噪声感知点云合成。
+   - 深度域仍以解析/物理结构为主，生成式深度噪声建模（扩散/流）几乎空白 → **研究机会**：把上述方法迁移到深度图/点云（条件变量：距离、反射率、入射角、曝光）。
 2. **自监督两帧法（学残差/去噪，间接学噪声）**
    - Noise2Noise (ICML 2018)：成对独立噪声样本 → 无需干净真值。深度相机两次拍摄天然满足。
    - SelfReDepth (JRTIP 2024, arXiv:2406.03388)：自监督实时深度修复；RGB 引导 (TIP 2022)；自监督 ToF (RGB-D 跨模态)。

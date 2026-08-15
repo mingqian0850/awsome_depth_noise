@@ -53,9 +53,23 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 - **Generation of Synthetic Kinect Depth Images Based on Empirical Noise Model** — T. M. Iversen, D. Kraft · *Electronics Letters*, 2017 · DOI 10.1049/el.2017.0392
   - ⭐ 经验噪声模型 → 合成深度图（早期 real2sim 噪声注入实证）。
 
-## 🔬 B. 物理仿真（ToF / 主动立体 / LiDAR）
+## 🔬 B. 物理仿真（ToF / 结构光 / 主动立体 / LiDAR）
 
 *第一性原理仿真传感器物理（光子飞行、多径、投影图案），训练数据保真度高，但要精确对齐真实器件需要标定。*
+
+**🔦 结构光（散斑 Kinect v1 / 条纹投影 FPP / 主动立体）**
+
+- **Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation** — *arXiv:2407.12449*, 2024 · [arXiv](https://arxiv.org/abs/2407.12449) · [IEEE Xplore](https://ieeexplore.ieee.org/document/10611401)
+  - ⭐⭐⭐ 物理结构光合成数据仿真，**直接以"缩小 sim2real 差距"为目标** —— 与你设想的"真实物理噪声注入"最重合的工作之一。
+- **VIRTUS-FPP: Virtual Sensor Modeling for Fringe Projection Profilometry in NVIDIA Isaac Sim** — *arXiv:2509.22685*, 2025 · [arXiv](https://arxiv.org/abs/2509.22685) · [IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/11554253)
+  - ⭐ 工业条纹投影（FPP）结构光在 Isaac Sim 中的虚拟传感器建模（OptiX 光线追踪），用于生成学习训练数据。
+- **Comprehensive Machine Learning Benchmarking for Fringe Projection Profilometry with Photorealistic Synthetic Data** — *SPIE 2025* · DOI 10.1117/12.3082257 · [arXiv:2601.08900](https://arxiv.org/abs/2601.08900)
+  - 照片级真实合成数据的 FPP 机器学习基准。
+- **Simulation of Structured Light 3D Scanning using Blender** — Puljcan, Zoraja（萨格勒布大学 FER）· [Semantic Scholar](https://www.semanticscholar.org/paper/Simulation-of-Structured-Light-3D-Scanning-using-Puljcan-Zoraja/486ef08f4040486fce98f1eb00b4378ab46ef603) · [PDF](https://www.bib.irb.hr:8443/1242928/download/1242928.ID29_Simulation_of_Structured_Light_3D_Scanning_using_Blender_submission.pdf)
+  - 用 Blender 仿真结构光 3D 扫描（投影-相机模型）。
+- **Robust Single-shot Structured Light 3D Imaging via Neural Feature Decoding** — *SIGGRAPH Asia 2025* · DOI 10.1145/3757377.3763924
+  - 数据驱动结构光解码（相邻方向：学习式结构光成像）。
+- （相关）**Simulating Kinect Infrared and Depth Images**（见 A 节）：从 IR 散斑物理仿真 Kinect 深度；**Active Stereo Sensor Simulation**（上方 T-RO 2023）面向 RealSense 主动立体。
 
 - **A Simulation Framework for Time-of-Flight Sensors** — M. Keller, J. Orthmann, A. Kolb · *SimVis 2007* · [Semantic Scholar](https://www.semanticscholar.org/paper/A-Simulation-Framework-for-Time-Of-Flight-Sensors-Keller-Orthmann/edf8ee02e4bb3412bb11511d942330a24dde3795)
   - 经典 ToF 传感器仿真框架。
@@ -84,6 +98,12 @@ An awesome list of research on **depth camera noise**: characterization & modeli
   - ⭐ 自适应地向合成点云注入噪声以逼近真实分布（对抗式噪声注入）。
 - **S2R-DepthNet: Learning a Generalizable Depth-Specific Structural Representation** — *CVPR 2021* · [arXiv:2104.00877](https://arxiv.org/abs/2104.00877)
   - 合成深度预训练 + 真实域适配，深度特有的结构表示学习。
+- **A Supervised Approach to Predicting Noise in Depth Images** — C. Sweeney et al. · *ICRA 2019* · DOI 10.1109/ICRA.2019.8793820
+  - ⭐⭐ 监督学习**直接预测深度图像的逐像素噪声**（输入深度+RGB 特征 → 噪声方差/分布），可作为噪声模型或 SLAM/重建加权先验——"学习真实噪声"的直接范例。
+- **Quasi-Balanced Self-Training on Noise-Aware Synthesis of Object Point Clouds for Closing Domain Gap** — *arXiv:2203.03833*, 2022 · [arXiv](https://arxiv.org/abs/2203.03833)
+  - ⭐⭐ 面向**主动立体**（相机+投影仪）的噪声感知点云合成 + 自训练，闭合点云域差距。
+- **Digital-Twin-Driven Unambiguous Structured Light 3D Imaging with Physics-Aware Learning** — *npj Nanophotonics*, 2025 · [Paper](https://www.nature.com/articles/s44310-025-00096-z)
+  - 结构光 3D 成像的数字孪生 + 物理感知学习（仿真→真实的物理约束迁移）。
 - **Noise Flow: Noise Modeling with Normalizing Flows** — A. Abdelhamed et al. · *ICCV 2019*
   - ⭐ 用归一化流显式学习真实相机噪声分布（RGB），生成式噪声建模的代表方法。
 - **A High-Quality Denoising Dataset for Smartphone Cameras (SIDD)** — A. Abdelhamed et al. · *CVPRW 2018*

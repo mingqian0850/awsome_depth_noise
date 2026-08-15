@@ -15,13 +15,18 @@
 | Noise Analysis and Modeling of the PMD Flexx2 Depth Camera for Robotic Applications（Plozza et al.） | COINS 2024 | [arXiv:2412.15040](https://arxiv.org/abs/2412.15040) | 现代 iToF 距离/强度相关噪声建模 | ⭐⭐⭐ |
 | Generation of Synthetic Kinect Depth Images Based on Empirical Noise Model（Iversen & Kraft） | Electronics Letters, 2017 | DOI 10.1049/el.2017.0392 | 经验噪声模型 → 合成深度图 | ⭐⭐⭐ |
 
-## B. 物理仿真（ToF / 主动立体 / LiDAR）
+## B. 物理仿真（ToF / 结构光 / 主动立体 / LiDAR）
 
 | 论文 | 会议/期刊 | 链接 | 一句话贡献 | 相关性 |
 |---|---|---|---|---|
 | A Simulation Framework for Time-of-Flight Sensors（Keller, Orthmann, Kolb） | SimVis 2007 | [Semantic Scholar](https://www.semanticscholar.org/paper/A-Simulation-Framework-for-Time-Of-Flight-Sensors-Keller-Orthmann/edf8ee02e4bb3412bb11511d942330a24dde3795) | 经典 ToF 仿真框架 | ⭐⭐ |
 | Quantified, Interactive Simulation of AMCW ToF Camera Including Multipath Effects | Sensors 18(1):13, 2018 | [MDPI](https://www.mdpi.com/1424-8220/18/1/13) · DOI 10.3390/s18010013 | 含多径效应的 AMCW ToF 仿真 | ⭐⭐ |
 | Close the Optical Sensing Domain Gap by Physics-Grounded Active Stereo Sensor Simulation（Zhang, Xu et al.） | IEEE T-RO 39(3):2429, 2023 | [arXiv:2201.11924](https://arxiv.org/abs/2201.11924) · DOI 10.1109/TRO.2023.3235591 | RealSense 主动立体物理仿真，显著缩小深度 sim2real 差距 | ⭐⭐⭐ |
+| **Close the Sim2real Gap via Physically-based Structured Light Synthetic Data Simulation** | arXiv:2407.12449, 2024 | [arXiv](https://arxiv.org/abs/2407.12449) · [IEEE Xplore](https://ieeexplore.ieee.org/document/10611401) | 物理结构光合成数据仿真，直接针对 sim2real 差距 | ⭐⭐⭐ |
+| **VIRTUS-FPP: Virtual Sensor Modeling for Fringe Projection Profilometry in NVIDIA Isaac Sim** | arXiv:2509.22685, 2025 | [arXiv](https://arxiv.org/abs/2509.22685) · [IEEE](https://ieeexplore.ieee.org/abstract/document/11554253) | 工业条纹投影（FPP）结构光在 Isaac Sim 的虚拟传感器建模 | ⭐⭐⭐ |
+| **Comprehensive Machine Learning Benchmarking for Fringe Projection Profilometry with Photorealistic Synthetic Data** | SPIE 2025 | DOI 10.1117/12.3082257 · [arXiv:2601.08900](https://arxiv.org/abs/2601.08900) | 照片级真实合成数据的 FPP 机器学习基准 | ⭐⭐ |
+| **Simulation of Structured Light 3D Scanning using Blender**（Puljcan & Zoraja） | 会议论文（萨格勒布大学 FER） | [Semantic Scholar](https://www.semanticscholar.org/paper/Simulation-of-Structured-Light-3D-Scanning-using-Puljcan-Zoraja/486ef08f4040486fce98f1eb00b4378ab46ef603) · [PDF](https://www.bib.irb.hr:8443/1242928/download/1242928.ID29_Simulation_of_Structured_Light_3D_Scanning_using_Blender_submission.pdf) | Blender 仿真结构光 3D 扫描 | ⭐⭐ |
+| **Robust Single-shot Structured Light 3D Imaging via Neural Feature Decoding** | SIGGRAPH Asia 2025 | DOI 10.1145/3757377.3763924 | 数据驱动结构光解码（学习式结构光成像） | ⭐ |
 | Physically-Based Simulation of Automotive LiDAR | arXiv:2512.05932, 2025 | [arXiv](https://arxiv.org/abs/2512.05932) | 含 blooming/回波展宽/多回波的 LiDAR 物理仿真 | ⭐ |
 | DeepToF: Off-the-Shelf Real-Time Correction of Multipath Interference in Time-of-Flight Imaging | SIGGRAPH Asia 2018 | [arXiv:1805.09305](https://arxiv.org/abs/1805.09305) | 物理仿真造数据 → 真实 ToF 多径校正（sim2real 范式） | ⭐⭐⭐ |
 | Dense Metric Depth Completion from Sparse Direct Time-of-Flight Sensors | CVPR 2026 | [arXiv:2608.04737](https://arxiv.org/abs/2608.04737) | 稀疏 dToF → 稠密深度 | ⭐ |
@@ -35,6 +40,9 @@
 | Project to Adapt: Domain Adaptation for Depth Completion from Noisy and Sparse Sensor Data（Lopez-Rodriguez et al.） | ACCV 2020 | [CVF](https://openaccess.thecvf.com/content/ACCV2020/html/Lopez-Rodriguez_Project_to_Adapt_Domain_Adaptation_for_Depth_Completion_from_Noisy_ACCV_2020_paper.html) | 从真实带噪稀疏数据学域迁移 | ⭐⭐⭐ |
 | Adversarially Masking Synthetic to Mimic Real: Adaptive Noise Injection for Point Cloud Segmentation Adaptation | CVPR 2023 | [Paper](https://mlanthology.org/cvpr/2023/li2023cvpr-adversarially/) | 自适应对抗式噪声注入弥合点云 sim2real 差距 | ⭐⭐⭐ |
 | S2R-DepthNet: Learning a Generalizable Depth-Specific Structural Representation | CVPR 2021 | [arXiv:2104.00877](https://arxiv.org/abs/2104.00877) | 合成深度预训练 + 真实域适配 | ⭐⭐ |
+| **A Supervised Approach to Predicting Noise in Depth Images**（Sweeney et al.） | ICRA 2019 | DOI 10.1109/ICRA.2019.8793820 | 监督学习预测深度图像逐像素噪声（噪声模型/加权先验） | ⭐⭐⭐ |
+| **Quasi-Balanced Self-Training on Noise-Aware Synthesis of Object Point Clouds for Closing Domain Gap** | arXiv:2203.03833, 2022 | [arXiv](https://arxiv.org/abs/2203.03833) | 主动立体（相机+投影仪）噪声感知点云合成 + 自训练 | ⭐⭐⭐ |
+| **Digital-Twin-Driven Unambiguous Structured Light 3D Imaging with Physics-Aware Learning** | npj Nanophotonics, 2025 | [Paper](https://www.nature.com/articles/s44310-025-00096-z) | 结构光数字孪生 + 物理感知学习 | ⭐⭐ |
 | Noise Flow: Noise Modeling with Normalizing Flows（Abdelhamed et al.） | ICCV 2019 | [Semantic Scholar](https://www.semanticscholar.org/paper/Noise-Flow-Noise-Modeling-with-Normalizing-Flows-Abdelhamed-Brubaker/aa495dd8a4eaff2fd5a67a1188c960ff9a693b3e) | 流模型显式学习真实相机噪声分布（RGB） | ⭐⭐⭐ |
 | A High-Quality Denoising Dataset for Smartphone Cameras (SIDD)（Abdelhamed et al.） | CVPRW 2018 | [SIDD](https://abdokamel.github.io/sidd/) | 真实噪声采集协议与数据集 | ⭐⭐ |
 | Unprocessing Images for Learned Raw Denoising（Brooks et al.） | CVPR 2019 | [arXiv:1811.11127](https://arxiv.org/abs/1811.11127) | 合成→真实 raw 噪声的物理逆处理 | ⭐⭐ |

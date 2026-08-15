@@ -8,7 +8,7 @@
 flowchart TB
     subgraph SRC["真实深度相机输出（噪声点云/深度图）"]
         A1["ToF（iToF / dToF）"]
-        A2["结构光（Kinect v1）"]
+        A2["结构光（散斑 Kinect v1 / 条纹投影 FPP）"]
         A3["主动立体（RealSense）"]
         A4["LiDAR（旋转 / 固态）"]
     end
@@ -52,7 +52,7 @@ flowchart TB
 | 路线 | 代表工作 | 保真度 | 成本 | 落地难度 | 适用传感器 |
 |---|---|---|---|---|---|
 | A. 解析/统计模型 | Khoshelham 2012；Nguyen 2012；Plozza 2024；Habitat Redwood 模型 | 中（随机误差好，缺失/多径差） | 极低 | 极低（直接做插件） | 全部（需逐型号标定） |
-| B. 物理仿真 | Keller 2007；AMCW ToF 2018；主动立体 T-RO 2023；车规 LiDAR 2025 | 高 | 高（渲染+标定） | 中 | ToF、主动立体、LiDAR |
+| B. 物理仿真 | Keller 2007；AMCW ToF 2018；主动立体 T-RO 2023；物理结构光 2024；VIRTUS-FPP 2025 | 高 | 高（渲染+标定） | 中 | ToF、结构光、主动立体、LiDAR |
 | C1. 生成式学噪声 | Noise Flow；RNSD（扩散）；SIDD | 高（学到的分布） | 中（需真实数据） | 中 | RGB 成熟，深度/点云空白 |
 | C2. 自监督两帧 | Noise2Noise；SelfReDepth | 高（去噪目标） | 低（无需真值） | 低 | 深度图/点云 |
 | C3. 域适配注入 | Project to Adapt；Adversarial Masking；S2R-DepthNet | 中高 | 中 | 中 | 深度、点云 |
