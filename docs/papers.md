@@ -43,6 +43,7 @@
 | **A Supervised Approach to Predicting Noise in Depth Images**（Sweeney et al.） | ICRA 2019 | DOI 10.1109/ICRA.2019.8793820 | 监督学习预测深度图像逐像素噪声（噪声模型/加权先验） | ⭐⭐⭐ |
 | **Quasi-Balanced Self-Training on Noise-Aware Synthesis of Object Point Clouds for Closing Domain Gap** | arXiv:2203.03833, 2022 | [arXiv](https://arxiv.org/abs/2203.03833) | 主动立体（相机+投影仪）噪声感知点云合成 + 自训练 | ⭐⭐⭐ |
 | **Digital-Twin-Driven Unambiguous Structured Light 3D Imaging with Physics-Aware Learning** | npj Nanophotonics, 2025 | [Paper](https://www.nature.com/articles/s44310-025-00096-z) | 结构光数字孪生 + 物理感知学习 | ⭐⭐ |
+| **Manipulation as in Simulation: Enabling Accurate Geometry Perception in Robots**（Liu et al., ByteDance Seed 等） | **ICLR 2026** | [arXiv:2509.02530](https://arxiv.org/abs/2509.02530) · [Project](https://manipulation-as-in-simulation.github.io/) · 📖 [精读笔记](../docs/paper_notes/manipulation-as-in-simulation.md) | 学真实噪声模式（value/hole）→ 仿真合成带噪深度 → 训练 CDM 去噪插件；纯仿真训练策略零样本部署到真实机器人 | ⭐⭐⭐ |
 | Noise Flow: Noise Modeling with Normalizing Flows（Abdelhamed et al.） | ICCV 2019 | [Semantic Scholar](https://www.semanticscholar.org/paper/Noise-Flow-Noise-Modeling-with-Normalizing-Flows-Abdelhamed-Brubaker/aa495dd8a4eaff2fd5a67a1188c960ff9a693b3e) | 流模型显式学习真实相机噪声分布（RGB） | ⭐⭐⭐ |
 | A High-Quality Denoising Dataset for Smartphone Cameras (SIDD)（Abdelhamed et al.） | CVPRW 2018 | [SIDD](https://abdokamel.github.io/sidd/) | 真实噪声采集协议与数据集 | ⭐⭐ |
 | Unprocessing Images for Learned Raw Denoising（Brooks et al.） | CVPR 2019 | [arXiv:1811.11127](https://arxiv.org/abs/1811.11127) | 合成→真实 raw 噪声的物理逆处理 | ⭐⭐ |

@@ -104,6 +104,12 @@ An awesome list of research on **depth camera noise**: characterization & modeli
   - ⭐⭐ 面向**主动立体**（相机+投影仪）的噪声感知点云合成 + 自训练，闭合点云域差距。
 - **Digital-Twin-Driven Unambiguous Structured Light 3D Imaging with Physics-Aware Learning** — *npj Nanophotonics*, 2025 · [Paper](https://www.nature.com/articles/s44310-025-00096-z)
   - 结构光 3D 成像的数字孪生 + 物理感知学习（仿真→真实的物理约束迁移）。
+
+**🤖 机器人操作应用（Visuomotor / VLA 时代）**
+
+- **Manipulation as in Simulation: Enabling Accurate Geometry Perception in Robots** — M. Liu et al.（**ByteDance Seed** + 上交 + 浙大 + 清华）· *ICLR 2026* · [arXiv:2509.02530](https://arxiv.org/abs/2509.02530) · [Project](https://manipulation-as-in-simulation.github.io/)
+  - ⭐⭐⭐ 用神经网络从**真实多相机数据学习噪声模式**（value noise + hole noise），在仿真中合成带噪深度训练 **Camera Depth Model（CDM）** 去噪插件；纯仿真训练的 depth-only 策略**零样本部署到真实机器人**，长时程操作成功率≈仿真水平。📖 [精读笔记](docs/paper_notes/manipulation-as-in-simulation.md)
+  - ⭐ 与"噪声注入"形成**路线对照**：论文主张"给仿真加噪是下策"，改为学噪声→去噪→让真实数据变"仿真级"（两条路线共享噪声学习基础，部署方向相反）。
 - **Noise Flow: Noise Modeling with Normalizing Flows** — A. Abdelhamed et al. · *ICCV 2019*
   - ⭐ 用归一化流显式学习真实相机噪声分布（RGB），生成式噪声建模的代表方法。
 - **A High-Quality Denoising Dataset for Smartphone Cameras (SIDD)** — A. Abdelhamed et al. · *CVPRW 2018*
@@ -171,7 +177,8 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 | 文档 | 内容 |
 |---|---|
 | [研究综述与可行性分析](docs/research_notes.md) | 噪声物理来源、方法分类、可行性结论、研究空白 |
-| [精读笔记](docs/paper_notes/close-sim2real-gap-structured-light.md) | 结构光物理仿真（ICRA 2024）逐段精读 |
+| [精读笔记：结构光物理仿真（ICRA 2024）](docs/paper_notes/close-sim2real-gap-structured-light.md) | 格雷码结构光全链路仿真，"噪声自然涌现"范式 |
+| [精读笔记：ByteDance CDM（ICLR 2026）](docs/paper_notes/manipulation-as-in-simulation.md) | 学真实噪声模式→训练去噪插件，零样本仿真→真实操作 |
 | [研究分类图谱](docs/taxonomy.md) | Mermaid 分类图 + 方法论对比 |
 | [完整论文清单](docs/papers.md) | 全部论文的表格化清单（含 arXiv/DOI/一句话注释） |
 | [数据集与基准](docs/datasets.md) | 真实/合成深度数据集、噪声评测基准 |

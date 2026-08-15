@@ -43,7 +43,8 @@
   - 自监督：Noise2Noise 两帧协议（真实数据直接训练）；
   - 弱监督：pseudo-GT（多帧平均）；
   - 监督（可选）：高精度真值；
-  - 方法池：SelfReDepth 类深度修复、RADU 类 ToF 去噪、点云分数方法（ScoreDenoise / Noise2Score3D）。
+  - 方法池：SelfReDepth 类深度修复、RADU 类 ToF 去噪、点云分数方法（ScoreDenoise / Noise2Score3D）、**CDM 式逐相机去噪插件（ByteDance ICLR 2026，学 value/hole 噪声模式→仿真合成→训练去噪）**。
+- [ ] **路线对照实验（关键）**：学到的噪声模型**双向部署**——(a) 注入仿真（real2sim，本 roadmap 主线）；(b) 训练去噪插件让真实数据变"仿真级"（sim2real-by-denoising，ByteDance 路线）。比较两者在下游任务（操作策略/VLA 成功率、SLAM）上的收益与代价，形成路线论证。
 - [ ] 评估：MAE / RMSE（对 pseudo-GT 与真值）、σ(d) 压缩比、点云 F-score / Chamfer、下游任务（SLAM 轨迹误差、抓取成功率）。
 - [ ] **交叉验证闭环**：用阶段 2 的注入噪声训练去噪模型 → 在真实数据上评估 → 反馈修正噪声模型（real2sim ⇄ denoising 闭环）。
 
