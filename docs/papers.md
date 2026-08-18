@@ -30,6 +30,7 @@
 | **Using Physically Based Rendering to Benchmark Structured Light Scanners** | Computer Graphics Forum 2014 | DOI 10.1111/cgf.12475 · [EG DigLib](https://diglib.eg.org/items/365c6d23-1a4f-4d17-85b7-8a3e8b9e97b9/full) | 用 PBR 物理渲染基准评测结构光扫描仪（经典） | ⭐⭐ |
 | **A Real-Time Simulator for High-Speed Structured-Light Cameras in Robotic Applications** | HAL 2025（CEA） | [cea-05080693](https://cea.hal.science/LIST/cea-05080693v1) | 面向机器人的高速结构光相机实时仿真 + 最优位姿评估 | ⭐⭐ |
 | **Comparative Analysis of Laser and Simulated Speckle Pattern for Single Shot 3D Reconstruction** | Applied Physics Letters 2021, 119(13):131108 | [APL](https://aipp.silverchair.com/aip/apl/article-abstract/119/13/131108/40864/Comparative-analysis-of-laser-and-simulated-speckle) | 激光散斑 vs 仿真散斑对单帧 3D 重建的影响（散斑仿真问题） | ⭐⭐ |
+| **LCAMV: High-Accuracy 3D Reconstruction of Color-Varying Objects Using LCA Correction and Minimum-Variance Fusion in Structured Light** | arXiv:2603.10456, 2026-03 | [arXiv](https://arxiv.org/abs/2603.10456) | 彩色/多材质物体的结构光重建精度（材质相关误差） | ⭐ |
 | Physically-Based Simulation of Automotive LiDAR | arXiv:2512.05932, 2025 | [arXiv](https://arxiv.org/abs/2512.05932) | 含 blooming/回波展宽/多回波的 LiDAR 物理仿真 | ⭐ |
 | DeepToF: Off-the-Shelf Real-Time Correction of Multipath Interference in Time-of-Flight Imaging | SIGGRAPH Asia 2018 | [arXiv:1805.09305](https://arxiv.org/abs/1805.09305) | 物理仿真造数据 → 真实 ToF 多径校正（sim2real 范式） | ⭐⭐⭐ |
 | Dense Metric Depth Completion from Sparse Direct Time-of-Flight Sensors | CVPR 2026 | [arXiv:2608.04737](https://arxiv.org/abs/2608.04737) | 稀疏 dToF → 稠密深度 | ⭐ |
@@ -99,4 +100,4 @@
 
 ---
 
-**整理日期**：2026（首批条目）；条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。
+**整理日期**：首批 2026-08-15，更新 2026-08-18；条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。

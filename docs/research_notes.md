@@ -126,10 +126,12 @@
 
 ---
 
-## 5. 检索方法学
+## 5. 检索方法学（Search Log）
 
-- 检索日期：2026 年（本仓库整理批次）。
-- 检索工具与关键词（节选）：
-  - 学术检索（arXiv / Semantic Scholar / IEEE Xplore / MDPI / CVF Open Access）：`depth camera noise model`, `Kinect noise`, `time-of-flight simulation`, `ToF denoising`, `point cloud denoising`, `LiDAR simulation real2sim`, `depth domain adaptation`, `noise synthesis diffusion`, `sim2real depth sensor noise`；
-  - 工程文档：Habitat-Sim docs（noise_models）、Gazebo (gz-sensors / gazebo_noisy_depth_camera)、Isaac Sim（ToF sensor）、AirSim（camera noise）、CARLA（LiDAR noise）。
-- 所有条目均附 arXiv/DOI/官方链接；未验证出处的条目已剔除或明确标注。
+- **检索日期（批次）**：① 首批：**2026-08-15**（仓库搭建：噪声表征 / ToF / 主动立体 / LiDAR / 去噪 / real2sim）；② 结构光专项：**2026-08-15**（散斑 / 格雷码 / 条纹投影 FPP）；③ 增补：**2026-08-18**（结构光噪声方向 2026 年新工作）。
+- **检索工具**：网络学术检索（web_search；arXiv API `export.arxiv.org`；arXiv / ar5iv 全文抓取）；官方文档（Isaac Sim、Habitat-Sim、Gazebo、AirSim、CARLA）；IEEE Xplore / MDPI / CVF Open Access / Semantic Scholar / ACM DL / Nature 官方页面。
+- **检索关键词（节选）**：
+  - 首批：`depth camera noise model` · `time-of-flight simulation` · `Kinect noise` · `point cloud denoising deep learning` · `LiDAR simulation real2sim` · `self-supervised depth denoising` · `sim2real depth sensor noise` · `depth domain adaptation` · `noise synthesis diffusion` · `Habitat-Sim noise model` · `RoboDepth` · `LiDARsim` · `S2R-DepthNet` 等；
+  - 结构光专项：`structured light depth camera simulation noise speckle` · `BlenSor` · `fringe projection profilometry simulation deep learning` · `VIRTUS-FPP` · `speckle simulation structured light` · `projector defocus structured light` · `laser vs simulated speckle` 等；
+  - 增补（2026-08-18）：`structured light depth sensor noise simulation 2026 arxiv` · `depth camera noise model learning real2sim denoising 2026 arxiv` · `Deep-Sea Laser Stripe noise mechanism` · `LCAMV structured light` 等。
+- **验证规则**：所有条目附 arXiv/DOI/官方链接并逐一核对；无法核实出处的条目不进入论文主表（仅标注为"待核实"线索）。2026-08-18 新增：LCAMV（arXiv:2603.10456，2026-03）；深海激光条纹噪声机理与可控退化建模（出处待核实，见 [open_problems.md](open_problems.md) 新线索）。

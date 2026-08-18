@@ -1,7 +1,7 @@
 # 研究空白与开放问题：结构光相机噪声方向
 
 > 背景：**Isaac Sim 6.0** 新增了结构光相机的投影/成像仿真支持（`isaacsim.sensors.experimental.rtx.StructuredLightCamera`），"工具"环节首次补齐。本文盘点该工具的能力边界，并系统梳理结构光相机噪声研究（噪声建模 / 去噪 / real2sim）的开放问题，供选题参考。
-> 更新：2026 年；关联：[研究综述](research_notes.md) · [路线图](roadmap.md) · [仿真器清单](simulators_tools.md)
+> 更新：2026-08-18（初稿 2026-08-15）；关联：[研究综述](research_notes.md) · [路线图](roadmap.md) · [仿真器清单](simulators_tools.md)
 
 ---
 
@@ -98,3 +98,5 @@
 - *Using Physically Based Rendering to Benchmark Structured Light Scanners* — Computer Graphics Forum 2014, DOI 10.1111/cgf.12475
 - *Comparative analysis of laser and simulated speckle pattern for single shot 3D reconstruction* — Applied Physics Letters 2021, 119(13):131108
 - *A real-time simulator for high-speed structured-light cameras in robotic applications with optimal positioning evaluation* — CEA, HAL 2025 (cea-05080693)
+- *LCAMV: High-Accuracy 3D Reconstruction of Color-Varying Objects Using LCA Correction and Minimum-Variance Fusion in Structured Light* — **arXiv:2603.10456, 2026-03**（[arXiv](https://arxiv.org/abs/2603.10456)）——彩色/多材质物体下的结构光重建精度问题，与 P2/P4（材质相关误差）相关
+- *Deep-Sea Laser Stripe Segmentation with Noise Mechanism Analysis and Controllable Degradation Modeling* — 2026（**出处待核实**，[Scilit](https://www.scilit.com/publications/415b4c2b18526eb8a8e325b85a3ced28)）——激光条纹的噪声机理分析与可控退化建模，与 P2/P5（误差源建模）方法论相关
