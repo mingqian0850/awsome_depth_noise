@@ -135,3 +135,4 @@
   - 结构光专项：`structured light depth camera simulation noise speckle` · `BlenSor` · `fringe projection profilometry simulation deep learning` · `VIRTUS-FPP` · `speckle simulation structured light` · `projector defocus structured light` · `laser vs simulated speckle` 等；
   - 增补（2026-08-18）：`structured light depth sensor noise simulation 2026 arxiv` · `depth camera noise model learning real2sim denoising 2026 arxiv` · `Deep-Sea Laser Stripe noise mechanism` · `LCAMV structured light` 等。
 - **验证规则**：所有条目附 arXiv/DOI/官方链接并逐一核对；无法核实出处的条目不进入论文主表（仅标注为"待核实"线索）。2026-08-18 新增：LCAMV（arXiv:2603.10456，2026-03）；深海激光条纹噪声机理与可控退化建模（出处待核实，见 [open_problems.md](open_problems.md) 新线索）。
+- **自动化检索（2026-08-19 起）**：GitHub Actions 每日 02:17 UTC 自动执行 `scripts/arxiv_daily_search.py`（6 大主题 × 10 条查询，arXiv API），候选摘要见 [daily_updates](../daily_updates/README.md)。首次运行（2026-08-19）产出 20 篇候选，其中 1 篇已人工提升至论文主表：*Sensor-Informed Per-Point Covariance for Structured-Light 3D Imaging*（arXiv:2608.10888）。
