@@ -186,6 +186,19 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 | [数据集与基准](docs/datasets.md) | 真实/合成深度数据集、噪声评测基准 |
 | [仿真器与噪声插件](docs/simulators_tools.md) | Habitat / Gazebo / Isaac Sim / AirSim / CARLA 的噪声支持与插件 |
 | [研究路线图](docs/roadmap.md) | 分阶段研究计划（数据采集 → 噪声建模 → 注入 → 去噪 → 评测） |
+| [每日 arXiv 摘要](daily_updates/README.md) | 每日自动检索摘要（未筛选候选，见下方自动化说明） |
+
+## 🤖 每日自动更新（Daily Automation）
+
+仓库通过 **GitHub Actions 定时任务**每天自动检索 arXiv 并生成摘要，无需人工触发：
+
+- **运行时间**：每天 **02:17 UTC**（arXiv 每日新公告之后）
+- **做什么**：`scripts/arxiv_daily_search.py` 按 `scripts/config.json` 中的主题/查询词检索 arXiv API → 与 `daily_updates/.seen.json` 去重 → 生成 `daily_updates/YYYY-MM-DD.md` 摘要 → 自动提交推送（**无新论文时不产生提交**）
+- **摘要性质**：⚠️ 为**未筛选候选**——需人工（或让助手）核对链接/venue 后，将高质量论文提升到 `docs/papers.md`，并在 [检索日志](docs/research_notes.md#5-检索方法学search-log) 登记
+- **手动触发**：仓库 Actions 页 → *daily-arxiv-search* → *Run workflow*（可指定回溯天数）
+- **本地运行**：`python3 scripts/arxiv_daily_search.py --days 7`
+- **调整检索范围**：编辑 `scripts/config.json`（主题、查询词、回溯天数、结果数）
+- ⚠️ 注意：GitHub 会在仓库**连续 60 天无活动**后暂停定时任务——保持仓库有提交即可避免
 
 ## 🤝 贡献
 

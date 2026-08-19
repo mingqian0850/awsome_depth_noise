@@ -1,0 +1,62 @@
+name: daily-arxiv-search
+
+on:
+  schedule:
+    # Daily at 02:17 UTC — after arXiv's daily announcements (~00:00 UTC).
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Lookback days for this manual run"
+        required: false
+        default: "2"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-arxiv-search
+  cancel-in-progress: true
+
+jobs:
+  search-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run daily arXiv search
+        run: |
+          if [ -n "${{ inputs.days }}" ]; then
+            python scripts/arxiv_daily_search.py --days "${{ inputs.days }}"
+          else
+            python scripts/arxiv_daily_search.py
+          fi
+
+      - name: Show latest digest (for log visibility)
+        run: |
+          latest=$(ls -1 daily_updates/20*.md 2>/dev/null | tail -n 1 || true)
+          if [ -n "$latest" ]; then
+            echo "=== $latest ==="
+            cat "$latest"
+          else
+            echo "No digest files yet (no new papers found)."
+          fi
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit (no new papers found)."
+          else
+            git commit -m "chore(daily): auto-update arXiv digest $(date -u +%F)"
+            git push
+          fi

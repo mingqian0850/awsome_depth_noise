@@ -1,0 +1,48 @@
+{
+  "lookback_days": 2,
+  "max_results_per_query": 25,
+  "request_delay_seconds": 3,
+  "abstract_max_chars": 600,
+  "topics": [
+    {
+      "name": "Depth camera noise & denoising",
+      "queries": [
+        "cat:cs.CV AND abs:\"depth camera\" AND (abs:noise OR abs:denoising OR abs:denoise)",
+        "cat:cs.CV AND (abs:\"depth denoising\" OR abs:\"depth restoration\" OR abs:\"depth enhancement\")"
+      ]
+    },
+    {
+      "name": "Time-of-flight & depth sensors",
+      "queries": [
+        "cat:cs.CV AND (abs:\"time-of-flight\" OR abs:\"ToF camera\") AND (abs:noise OR abs:simulation OR abs:denoising)",
+        "cat:cs.CV AND abs:LiDAR AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:\"domain gap\")"
+      ]
+    },
+    {
+      "name": "Structured light",
+      "queries": [
+        "cat:cs.CV AND abs:\"structured light\" AND (abs:simulation OR abs:noise OR abs:reconstruction OR abs:speckle)"
+      ]
+    },
+    {
+      "name": "Point cloud denoising",
+      "queries": [
+        "cat:cs.CV AND abs:\"point cloud\" AND (abs:denoising OR abs:\"noise removal\")"
+      ]
+    },
+    {
+      "name": "Depth sim2real / real2sim",
+      "queries": [
+        "cat:cs.CV AND abs:depth AND (abs:sim2real OR abs:\"sim-to-real\" OR abs:\"sim to real\")",
+        "cat:cs.RO AND abs:depth AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:sensor)"
+      ]
+    },
+    {
+      "name": "Learned sensor noise synthesis",
+      "queries": [
+        "cat:cs.CV AND (abs:\"noise model\" OR abs:\"noise synthesis\") AND (abs:camera OR abs:sensor OR abs:depth)",
+        "cat:cs.CV AND (abs:real2sim OR abs:\"real-to-sim\")"
+      ]
+    }
+  ]
+}
