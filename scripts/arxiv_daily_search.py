@@ -64,7 +64,7 @@ def save_seen(seen: set) -> None:
     )
 
 
-def api_query(search_query: str, max_results: int, delay: float) -> list[dict]:
+def api_query(search_query: str, max_results: int, delay: float, max_retries: int = 2) -> list[dict]:
     params = {
         "search_query": search_query,
         "start": 0,
@@ -73,11 +73,23 @@ def api_query(search_query: str, max_results: int, delay: float) -> list[dict]:
         "sortOrder": "descending",
     }
     url = f"{API}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        raw = resp.read().decode("utf-8", errors="replace")
-    time.sleep(delay)  # arXiv API etiquette
-    return parse_feed(raw)
+    for attempt in range(max_retries + 1):
+        time.sleep(delay)  # arXiv API etiquette: space out requests *before* sending
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                raw = resp.read().decode("utf-8", errors="replace")
+            return parse_feed(raw)
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < max_retries:
+                log(
+                    f"    ! HTTP 429 rate-limited, retrying in 30 s "
+                    f"(attempt {attempt + 1}/{max_retries})"
+                )
+                time.sleep(30)
+                continue
+            raise
+    return []  # unreachable; kept for clarity
 
 
 def parse_feed(raw: str) -> list[dict]:

@@ -1,7 +1,7 @@
 {
-  "lookback_days": 2,
+  "lookback_days": 3,
   "max_results_per_query": 25,
-  "request_delay_seconds": 3,
+  "request_delay_seconds": 4,
   "abstract_max_chars": 600,
   "topics": [
     {
@@ -21,13 +21,22 @@
     {
       "name": "Structured light",
       "queries": [
-        "cat:cs.CV AND abs:\"structured light\" AND (abs:simulation OR abs:noise OR abs:reconstruction OR abs:speckle)"
+        "cat:cs.CV AND abs:\"structured light\" AND (abs:simulation OR abs:noise OR abs:reconstruction OR abs:speckle)",
+        "cat:cs.CV AND (abs:speckle OR abs:\"single-shot\") AND (abs:\"structured light\" OR abs:projector OR abs:\"depth camera\")"
       ]
     },
     {
-      "name": "Point cloud denoising",
+      "name": "Active stereo & specific sensors",
       "queries": [
-        "cat:cs.CV AND abs:\"point cloud\" AND (abs:denoising OR abs:\"noise removal\")"
+        "cat:cs.CV AND abs:\"active stereo\" AND (abs:noise OR abs:simulation OR abs:calibration)",
+        "cat:cs.CV AND (abs:Photoneo OR abs:Orbbec OR abs:RealSense OR abs:\"Azure Kinect\") AND (abs:noise OR abs:simulation OR abs:denoising OR abs:calibration)"
+      ]
+    },
+    {
+      "name": "Point cloud denoising & sim2real",
+      "queries": [
+        "cat:cs.CV AND abs:\"point cloud\" AND (abs:denoising OR abs:\"noise removal\")",
+        "cat:cs.CV AND abs:\"point cloud\" AND (abs:sim2real OR abs:\"domain adaptation\" OR abs:\"real2sim\")"
       ]
     },
     {
@@ -42,6 +51,26 @@
       "queries": [
         "cat:cs.CV AND (abs:\"noise model\" OR abs:\"noise synthesis\") AND (abs:camera OR abs:sensor OR abs:depth)",
         "cat:cs.CV AND (abs:real2sim OR abs:\"real-to-sim\")"
+      ]
+    },
+    {
+      "name": "VLA & robotics with depth",
+      "queries": [
+        "cat:cs.CV AND (abs:VLA OR abs:\"vision-language-action\") AND (abs:depth OR abs:3D OR abs:robot OR abs:grasp)",
+        "cat:cs.RO AND (abs:\"depth image\" OR abs:pointcloud) AND (abs:policy OR abs:manipulation OR abs:grasping) AND (abs:noise OR abs:sim2real OR abs:simulation)"
+      ]
+    },
+    {
+      "name": "Depth foundation models & metric depth",
+      "queries": [
+        "cat:cs.CV AND (abs:\"depth foundation model\" OR abs:\"metric depth\" OR abs:\"depth estimation\") AND (abs:noise OR abs:robust OR abs:uncertainty)"
+      ]
+    },
+    {
+      "name": "Sensor simulation (robotics)",
+      "queries": [
+        "all:\"sensor simulation\" AND cat:cs.RO",
+        "cat:cs.RO AND (abs:\"sensor noise\" OR abs:\"noise model\") AND (abs:depth OR abs:camera OR abs:LiDAR)"
       ]
     }
   ]
