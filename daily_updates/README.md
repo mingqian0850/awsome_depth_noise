@@ -5,8 +5,9 @@
 > [docs/papers.md](../docs/papers.md)（补全 venue/链接），并在
 > [docs/research_notes.md](../docs/research_notes.md) §5 检索日志中追加记录。
 
-**上次更新**: 2026-08-19
+**上次更新**: 2026-08-24
 
 ## 摘要列表（新 → 旧）
 
+- [2026-08-24](2026-08-24.md)
 - [2026-08-19](2026-08-19.md)
