@@ -56,7 +56,7 @@
     {
       "name": "VLA & robotics with depth",
       "queries": [
-        "cat:cs.CV AND (abs:VLA OR abs:\"vision-language-action\") AND (abs:depth OR abs:3D OR abs:robot OR abs:grasp)",
+        "cat:cs.CV AND (abs:VLA OR abs:\"vision-language-action\") AND (abs:depth OR abs:3D) AND (abs:noise OR abs:sensor OR abs:simulation OR abs:uncertainty)",
         "cat:cs.RO AND (abs:\"depth image\" OR abs:pointcloud) AND (abs:policy OR abs:manipulation OR abs:grasping) AND (abs:noise OR abs:sim2real OR abs:simulation)"
       ]
     },
