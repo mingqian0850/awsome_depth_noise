@@ -14,6 +14,7 @@
 | Metrological and Critical Characterization of the Intel D415 Stereo Depth Camera（Carfagni et al.） | Sensors 19(3), 2019 | [MDPI](https://www.mdpi.com/1424-8220/19/3/489) · PMID 30691011 | 主动立体相机噪声/精度表征 | ⭐⭐ |
 | Noise Analysis and Modeling of the PMD Flexx2 Depth Camera for Robotic Applications（Plozza et al.） | COINS 2024 | [arXiv:2412.15040](https://arxiv.org/abs/2412.15040) | 现代 iToF 距离/强度相关噪声建模 | ⭐⭐⭐ |
 | Generation of Synthetic Kinect Depth Images Based on Empirical Noise Model（Iversen & Kraft） | Electronics Letters, 2017 | DOI 10.1049/el.2017.0392 | 经验噪声模型 → 合成深度图 | ⭐⭐⭐ |
+| **Repeatability Characterisation and Error Budget of a Consumer Structured-Light Scanner for 3-D Wound Geometry** | 预印本 2026-08（自动检索入库） | [arXiv:2608.30143](https://arxiv.org/abs/2608.30143) | 消费级结构光扫描仪的**重复性极限与误差预算**实证（9 部位 23 次扫描，面积重复性极限 4.8×）——结构光误差源分解的一手数据 | ⭐⭐⭐ |
 
 ## B. 物理仿真（ToF / 结构光 / 主动立体 / LiDAR）
 
@@ -49,6 +50,10 @@
 | **Quasi-Balanced Self-Training on Noise-Aware Synthesis of Object Point Clouds for Closing Domain Gap** | arXiv:2203.03833, 2022 | [arXiv](https://arxiv.org/abs/2203.03833) | 主动立体（相机+投影仪）噪声感知点云合成 + 自训练 | ⭐⭐⭐ |
 | **Digital-Twin-Driven Unambiguous Structured Light 3D Imaging with Physics-Aware Learning** | npj Nanophotonics, 2025 | [Paper](https://www.nature.com/articles/s44310-025-00096-z) | 结构光数字孪生 + 物理感知学习 | ⭐⭐ |
 | **Manipulation as in Simulation: Enabling Accurate Geometry Perception in Robots**（Liu et al., ByteDance Seed 等） | **ICLR 2026** | [arXiv:2509.02530](https://arxiv.org/abs/2509.02530) · [Project](https://manipulation-as-in-simulation.github.io/) · 📖 [精读笔记](../docs/paper_notes/manipulation-as-in-simulation.md) | 学真实噪声模式（value/hole）→ 仿真合成带噪深度 → 训练 CDM 去噪插件；纯仿真训练策略零样本部署到真实机器人 | ⭐⭐⭐ |
+| **sRGB Real Noise Modeling via Noise-Aware Sampling with Normalizing Flows** | 预印本 2026-08（自动检索入库） | [arXiv:2608.29038](https://arxiv.org/abs/2608.29038) | 归一化流 + 噪声感知采样做**真实噪声建模**（sRGB 域，Noise Flow 系最新进展，方法论可迁移至深度） | ⭐⭐⭐ |
+| **Solution for UCF UrbanTwin LUMPI Track: Sim-to-Real Urban LiDAR 3D Object Detection** | 预印本 2026-09（自动检索入库） | [arXiv:2609.07590](https://arxiv.org/abs/2609.07590) | 显式对齐合成/真实 LiDAR 的密度与**回波模式**，并以 **point-cloud realism** 作为独立评测维度（对应 P7 逼真度指标） | ⭐⭐ |
+| **Solution for UCF UrbanTwin V2X-Real Track: Sim-to-Real Urban LiDAR 3D Object Detection** | 预印本 2026-09（自动检索入库） | [arXiv:2609.07608](https://arxiv.org/abs/2609.07608) | 多源协同训练缩小 Sim2Real 差距（场景几何/采样密度/回波模式/行人尺度）+ 扩散重绘扫描 | ⭐⭐ |
+| **RealSimLoop: Online Real-to-Sim Adaptation via Differentiable Reduced-Order Simulation with Vision Feedback** | 预印本 2026-09（自动检索入库） | [arXiv:2609.09828](https://arxiv.org/abs/2609.09828) | 在线 real-to-sim 参数自适应（可微降阶仿真 + 视觉反馈）——real2sim 的"物理参数对齐"路线 | ⭐ |
 | Noise Flow: Noise Modeling with Normalizing Flows（Abdelhamed et al.） | ICCV 2019 | [Semantic Scholar](https://www.semanticscholar.org/paper/Noise-Flow-Noise-Modeling-with-Normalizing-Flows-Abdelhamed-Brubaker/aa495dd8a4eaff2fd5a67a1188c960ff9a693b3e) | 流模型显式学习真实相机噪声分布（RGB） | ⭐⭐⭐ |
 | A High-Quality Denoising Dataset for Smartphone Cameras (SIDD)（Abdelhamed et al.） | CVPRW 2018 | [SIDD](https://abdokamel.github.io/sidd/) | 真实噪声采集协议与数据集 | ⭐⭐ |
 | Unprocessing Images for Learned Raw Denoising（Brooks et al.） | CVPR 2019 | [arXiv:1811.11127](https://arxiv.org/abs/1811.11127) | 合成→真实 raw 噪声的物理逆处理 | ⭐⭐ |
@@ -67,6 +72,7 @@
 | iToF2dToF: A Robust and Flexible Representation for Data-Driven Time-of-Flight Imaging | CVPR 2021 | [arXiv:2103.07087](https://arxiv.org/abs/2103.07087) | 数据驱动 iToF 重建的鲁棒表示 | ⭐⭐ |
 | Learnable Fractional Reaction-Diffusion Dynamics for Under-Display ToF Imaging and Beyond | ICCV 2025 | [Paper](https://mlanthology.org/iccv/2025/qiao2025iccv-learnable/) | 屏下 ToF 成像学习 | ⭐ |
 | Noise2Noise: Learning Image Restoration without Clean Targets（Lehtinen et al.） | ICML 2018 | [arXiv:1803.04189](https://arxiv.org/abs/1803.04189) | 自监督去噪基石（两帧独立噪声） | ⭐⭐⭐ |
+| **CAP: Continuously Adaptive Perception-Blind Humanoid Locomotion via Learned Denoising** | 预印本 2026-09（自动检索入库） | [arXiv:2609.11553](https://arxiv.org/abs/2609.11553) | 用**学习式去噪**恢复"部分损坏/间歇失效"的深度观测，供人形机器人运动策略使用（深度去噪 → 下游策略鲁棒性，与 CDM 路线呼应） | ⭐⭐⭐ |
 
 ### D2. 点云
 
@@ -101,4 +107,4 @@
 
 ---
 
-**整理日期**：首批 2026-08-15，更新 2026-08-18；2026-08-19 起由每日自动检索（GitHub Actions）持续补充候选（见 [daily_updates](../daily_updates/README.md)）；条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。
+**整理日期**：首批 2026-08-15，更新 2026-08-18；2026-08-19 起由每日自动检索（GitHub Actions）持续补充候选（见 [daily_updates](../daily_updates/README.md)）；**2026-09-14 从自动候选批量提升 6 篇**（结构光重复性误差预算、sRGB 流模型噪声建模、UCF UrbanTwin Sim2Real LiDAR ×2、RealSimLoop、CAP 学习式去噪）。条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。

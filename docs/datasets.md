@@ -15,6 +15,7 @@
 | ARKitScenes | iPad LiDAR / RGB-D | 室内场景，含深度噪声与相机位姿 | [ARKitScenes](https://github.com/apple/ARKitScenes) |
 | KITTI Depth | Velodyne LiDAR | 自动驾驶深度/补全基准 | [KITTI](https://www.cvlibs.net/datasets/kitti/eval_depth.php) |
 | nuScenes / SemanticKITTI | 多线 LiDAR | 点云感知与域适应常用 | [nuScenes](https://www.nuscenes.org/) · [SemanticKITTI](http://www.semantic-kitti.org/) |
+| **DARP**（2026，自动检索入库） | 2× Intel RealSense（双臂 eye-in-hand） | 双臂标定 RGB-D-**IR** 数据集（同步 RGB/深度/立体红外 + 关节状态），适合同一场景多视角噪声/标定表征 | [arXiv:2608.31002](https://arxiv.org/abs/2608.31002) |
 
 ## 合成深度 / 仿真数据集（适合验证"注入噪声"管线）
 
