@@ -96,6 +96,7 @@
 | 论文 | 会议/期刊 | 链接 | 一句话贡献 |
 |---|---|---|---|
 | RoboDepth: Robust Out-of-Distribution Depth Estimation under Corruptions | NeurIPS 2023 D&B | [arXiv:2310.15171](https://arxiv.org/abs/2310.15171) | 深度估计鲁棒性基准（含真实感深度退化） |
+| **Geometry vs Structure: Graph-Based Diagnostics for LiDAR Point-Cloud Simulation Fidelity**（Farhani & Rahman） | 预印本 2026-09（自动检索入库） | [arXiv:2609.16378](https://arxiv.org/abs/2609.16378) | 基于图的**仿真点云结构保真度**诊断：指出 Chamfer 等几何指标会掩盖结构差异 → 直接对应开放问题 **P7 逼真度指标协议** |
 
 ## G. 综述
 
@@ -107,4 +108,4 @@
 
 ---
 
-**整理日期**：首批 2026-08-15，更新 2026-08-18；2026-08-19 起由每日自动检索（GitHub Actions）持续补充候选（见 [daily_updates](../daily_updates/README.md)）；**2026-09-14 从自动候选批量提升 6 篇**（结构光重复性误差预算、sRGB 流模型噪声建模、UCF UrbanTwin Sim2Real LiDAR ×2、RealSimLoop、CAP 学习式去噪）。条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。
+**整理日期**：首批 2026-08-15，更新 2026-08-18；2026-08-19 起由每日自动检索（GitHub Actions）持续补充候选（见 [daily_updates](../daily_updates/README.md)）；**2026-09-14 从自动候选批量提升 6 篇**（结构光重复性误差预算、sRGB 流模型噪声建模、UCF UrbanTwin Sim2Real LiDAR ×2、RealSimLoop、CAP 学习式去噪）；**2026-09-21 提升 1 篇**（图基仿真点云保真度诊断）。条目元数据（venue/arXiv/DOI）均已逐一核对链接，如发现变更请提 Issue 或 PR 修正。
