@@ -1,14 +1,15 @@
 # 每日 arXiv 检索摘要（Daily Digests）
 
-> 由 GitHub Actions 每日自动生成（`scripts/arxiv_daily_search.py`）。
+> 由 GitHub Actions 每日自动生成（`scripts/daily_search.py`）。
 > **内容为未筛选候选**：请人工（或让助手）核对条目后，将高质量论文提升到
 > [docs/papers.md](../docs/papers.md)（补全 venue/链接），并在
 > [docs/research_notes.md](../docs/research_notes.md) §5 检索日志中追加记录。
 
-**上次更新**: 2026-09-16
+**上次更新**: 2026-09-28
 
 ## 摘要列表（新 → 旧）
 
+- [2026-09-28](2026-09-28.md)
 - [2026-09-16](2026-09-16.md)
 - [2026-09-11](2026-09-11.md)
 - [2026-09-10](2026-09-10.md)
