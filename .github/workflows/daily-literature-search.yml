@@ -1,4 +1,4 @@
-name: daily-arxiv-search
+name: daily-literature-search
 
 on:
   schedule:
@@ -9,14 +9,14 @@ on:
       days:
         description: "Lookback days for this manual run"
         required: false
-        default: "2"
+        default: "3"
         type: string
 
 permissions:
   contents: write
 
 concurrency:
-  group: daily-arxiv-search
+  group: daily-literature-search
   cancel-in-progress: true
 
 jobs:
@@ -31,22 +31,36 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run daily arXiv search
+      # Multi-source digest: arXiv RSS (full daily feed + local keyword filter)
+      # and OpenAlex (keyword queries). A non-zero exit code means the search
+      # itself failed — the job turns red instead of silently reporting zero.
+      - name: Run daily literature search
         run: |
           if [ -n "${{ inputs.days }}" ]; then
-            python scripts/arxiv_daily_search.py --days "${{ inputs.days }}"
+            python scripts/daily_search.py --days "${{ inputs.days }}"
           else
-            python scripts/arxiv_daily_search.py
+            python scripts/daily_search.py
+          fi
+
+      - name: Show source health
+        if: always()
+        run: |
+          if [ -f daily_updates/.health.json ]; then
+            echo "=== daily_updates/.health.json (last entry) ==="
+            python -c "import json;h=json.load(open('daily_updates/.health.json'));print(json.dumps(h[-1],ensure_ascii=False,indent=1))"
+          else
+            echo "No health record yet."
           fi
 
       - name: Show latest digest (for log visibility)
+        if: always()
         run: |
           latest=$(ls -1 daily_updates/20*.md 2>/dev/null | tail -n 1 || true)
           if [ -n "$latest" ]; then
             echo "=== $latest ==="
             cat "$latest"
           else
-            echo "No digest files yet (no new papers found)."
+            echo "No digest files yet."
           fi
 
       - name: Commit and push updates
@@ -55,8 +69,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
-            echo "No changes to commit (no new papers found)."
+            echo "No changes to commit (no new candidates found)."
           else
-            git commit -m "chore(daily): auto-update arXiv digest $(date -u +%F)"
+            git commit -m "chore(daily): auto-update literature digest $(date -u +%F)"
             git push
           fi

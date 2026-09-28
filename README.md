@@ -190,14 +190,19 @@ An awesome list of research on **depth camera noise**: characterization & modeli
 
 ## 🤖 每日自动更新（Daily Automation）
 
-仓库通过 **GitHub Actions 定时任务**每天自动检索 arXiv 并生成摘要，无需人工触发：
+仓库通过 **GitHub Actions 定时任务**每天自动检索文献并生成候选摘要，无需人工触发：
 
 - **运行时间**：每天 **02:17 UTC**（arXiv 每日新公告之后）
-- **做什么**：`scripts/arxiv_daily_search.py` 按 `scripts/config.json` 中的主题/查询词检索 arXiv API → 与 `daily_updates/.seen.json` 去重 → 生成 `daily_updates/YYYY-MM-DD.md` 摘要 → 自动提交推送（**无新论文时不产生提交**）
+- **数据源（多源，2026-09-28 重构）**：
+  1. **arXiv RSS**（主源）— `rss.arxiv.org/rss/{cs.CV, cs.RO, eess.IV}`，每分类 1 次请求即拿到**当日全量公告**，再用本地两级关键词过滤（核心主题+修饰词 / 宽泛主题+标题强修饰词）筛选候选；
+  2. **OpenAlex**（补充源）— 按关键词 + 日期窗口检索（`mailto` 进入 polite pool），覆盖 RSS 之外的条目并回补回溯窗口；
+  3. **arXiv 关键词 API**（备用源，默认关闭）— 2026-09 起该接口对 CI/云 IP 频繁返回 HTTP 429，是此前"一周 0 候选"静默失败的原因，故默认停用。
+- **流程**：检索 → 过滤 → 与 `daily_updates/.seen.json` 去重 → 生成 `daily_updates/YYYY-MM-DD.md` → 自动提交推送（**无新候选时不产生提交**）
+- **健康检查（fail-loud）**：若**所有启用源都失败**，脚本以退出码 2 结束、Actions 任务标红（不再静默报"0 篇"）；每次运行的状态记录在 `daily_updates/.health.json`（保留最近 30 次），摘要顶部也会标注"数据源降级"
 - **摘要性质**：⚠️ 为**未筛选候选**——需人工（或让助手）核对链接/venue 后，将高质量论文提升到 `docs/papers.md`，并在 [检索日志](docs/research_notes.md#5-检索方法学search-log) 登记
-- **手动触发**：仓库 Actions 页 → *daily-arxiv-search* → *Run workflow*（可指定回溯天数）
-- **本地运行**：`python3 scripts/arxiv_daily_search.py --days 7`
-- **调整检索范围**：编辑 `scripts/config.json`（主题、查询词、回溯天数、结果数）
+- **手动触发**：仓库 Actions 页 → *daily-literature-search* → *Run workflow*（可指定回溯天数）
+- **本地运行**：`python3 scripts/daily_search.py --days 7`（`--dry-run` 只打印；`--source rss` 只跑单源）
+- **调整检索范围**：编辑 `scripts/config.json`（数据源、过滤词、回溯天数、OpenAlex 查询词）
 - ⚠️ 注意：GitHub 会在仓库**连续 60 天无活动**后暂停定时任务——保持仓库有提交即可避免
 
 ## 🤝 贡献

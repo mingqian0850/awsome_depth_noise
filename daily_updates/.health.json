@@ -1,0 +1,27 @@
+[
+ {
+  "at": "2026-09-28T08:31:22+00:00",
+  "lookback_days": 3,
+  "sources": {
+   "arxiv-rss": {
+    "enabled": true,
+    "ok": false,
+    "error": "OSError: simulated network failure"
+   },
+   "openalex": {
+    "enabled": true,
+    "ok": false,
+    "error": "OSError: simulated network failure"
+   },
+   "arxiv-api": {
+    "enabled": false
+   }
+  },
+  "enabled_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "ok_sources": [],
+  "result": "all-sources-failed"
+ }
+]

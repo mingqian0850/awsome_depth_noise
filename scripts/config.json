@@ -1,77 +1,88 @@
 {
   "lookback_days": 3,
-  "max_results_per_query": 25,
-  "request_delay_seconds": 4,
   "abstract_max_chars": 600,
-  "topics": [
-    {
-      "name": "Depth camera noise & denoising",
+
+  "filter": {
+    "_comment": "本地两级过滤器（RSS 全量日志 + OpenAlex 结果）：(核心主题 AND 任意修饰) OR (宽泛主题 AND 强修饰)",
+    "core_topics": [
+      "depth camera", "depth sensor", "depth noise", "depth denoising", "depth restoration",
+      "time-of-flight", "tof camera", "itof", "dtof",
+      "structured light", "speckle", "fringe projection", "active stereo", "stereo depth",
+      "depth completion", "sim2real", "sim-to-real", "real2sim", "real-to-sim",
+      "rgb-d sensor", "sensor simulation"
+    ],
+    "broad_topics": [
+      "point cloud", "lidar", "rgb-d", "depth estimation", "depth image", "depth map"
+    ],
+    "modifiers": [
+      "noise", "denois", "simulat", "fidelity", "realism", "calibrat",
+      "artifact", "uncertaint", "degrad", "domain gap", "sensor model",
+      "multipath", "reflectance", "measurement error", "sim2real", "real2sim"
+    ],
+    "strong_modifiers": [
+      "noise", "denois", "multipath", "fidelity", "realism", "sensor model",
+      "reflectance", "measurement error", "sim2real", "real2sim",
+      "sim-to-real", "real-to-sim"
+    ]
+  },
+
+  "sources": {
+    "arxiv_rss": {
+      "_comment": "主源：官方每日公告 RSS（每个分类 1 次请求，全量 + 本地过滤，不受关键词 API 限流影响）",
+      "enabled": true,
+      "categories": ["cs.CV", "cs.RO", "eess.IV"],
+      "include_announce_types": ["new"]
+    },
+
+    "openalex": {
+      "_comment": "补充源：关键词 + 日期窗口检索，mailto 进入 polite pool；短语加引号提高精度",
+      "enabled": true,
+      "mailto": "mingqian.chen@tum.de",
+      "max_results_per_query": 25,
+      "queries": [
+        "\"depth camera\" noise",
+        "\"depth denoising\"",
+        "\"depth sensor\" simulation",
+        "\"structured light\" simulation",
+        "\"structured light\" noise",
+        "\"speckle\" \"structured light\"",
+        "\"time-of-flight\" depth noise",
+        "\"active stereo\" noise",
+        "\"point cloud denoising\"",
+        "\"LiDAR simulation\" realism",
+        "\"sim-to-real\" depth",
+        "\"real-to-sim\" sensor",
+        "\"sensor noise\" model",
+        "\"depth completion\" sparse"
+      ]
+    },
+
+    "arxiv_api": {
+      "_comment": "备用源：arXiv 关键词查询。默认关闭 —— 2026-09 起该接口对 CI/云 IP 频繁返回 429，会导致静默失败",
+      "enabled": false,
+      "request_delay_seconds": 4,
+      "max_results_per_query": 25,
       "queries": [
         "cat:cs.CV AND abs:\"depth camera\" AND (abs:noise OR abs:denoising OR abs:denoise)",
-        "cat:cs.CV AND (abs:\"depth denoising\" OR abs:\"depth restoration\" OR abs:\"depth enhancement\")"
-      ]
-    },
-    {
-      "name": "Time-of-flight & depth sensors",
-      "queries": [
+        "cat:cs.CV AND (abs:\"depth denoising\" OR abs:\"depth restoration\" OR abs:\"depth enhancement\")",
         "cat:cs.CV AND (abs:\"time-of-flight\" OR abs:\"ToF camera\") AND (abs:noise OR abs:simulation OR abs:denoising)",
-        "cat:cs.CV AND abs:LiDAR AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:\"domain gap\")"
-      ]
-    },
-    {
-      "name": "Structured light",
-      "queries": [
+        "cat:cs.CV AND abs:LiDAR AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:\"domain gap\")",
         "cat:cs.CV AND abs:\"structured light\" AND (abs:simulation OR abs:noise OR abs:reconstruction OR abs:speckle)",
-        "cat:cs.CV AND (abs:speckle OR abs:\"single-shot\") AND (abs:\"structured light\" OR abs:projector OR abs:\"depth camera\")"
-      ]
-    },
-    {
-      "name": "Active stereo & specific sensors",
-      "queries": [
+        "cat:cs.CV AND (abs:speckle OR abs:\"single-shot\") AND (abs:\"structured light\" OR abs:projector OR abs:\"depth camera\")",
         "cat:cs.CV AND abs:\"active stereo\" AND (abs:noise OR abs:simulation OR abs:calibration)",
-        "cat:cs.CV AND (abs:Photoneo OR abs:Orbbec OR abs:RealSense OR abs:\"Azure Kinect\") AND (abs:noise OR abs:simulation OR abs:denoising OR abs:calibration)"
-      ]
-    },
-    {
-      "name": "Point cloud denoising & sim2real",
-      "queries": [
+        "cat:cs.CV AND (abs:Photoneo OR abs:Orbbec OR abs:RealSense OR abs:\"Azure Kinect\") AND (abs:noise OR abs:simulation OR abs:denoising OR abs:calibration)",
         "cat:cs.CV AND abs:\"point cloud\" AND (abs:denoising OR abs:\"noise removal\")",
-        "cat:cs.CV AND abs:\"point cloud\" AND (abs:sim2real OR abs:\"domain adaptation\" OR abs:\"real2sim\")"
-      ]
-    },
-    {
-      "name": "Depth sim2real / real2sim",
-      "queries": [
+        "cat:cs.CV AND abs:\"point cloud\" AND (abs:sim2real OR abs:\"domain adaptation\" OR abs:\"real2sim\")",
         "cat:cs.CV AND abs:depth AND (abs:sim2real OR abs:\"sim-to-real\" OR abs:\"sim to real\")",
-        "cat:cs.RO AND abs:depth AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:sensor)"
-      ]
-    },
-    {
-      "name": "Learned sensor noise synthesis",
-      "queries": [
+        "cat:cs.RO AND abs:depth AND (abs:simulation OR abs:sim2real) AND (abs:noise OR abs:sensor)",
         "cat:cs.CV AND (abs:\"noise model\" OR abs:\"noise synthesis\") AND (abs:camera OR abs:sensor OR abs:depth)",
-        "cat:cs.CV AND (abs:real2sim OR abs:\"real-to-sim\")"
-      ]
-    },
-    {
-      "name": "VLA & robotics with depth",
-      "queries": [
+        "cat:cs.CV AND (abs:real2sim OR abs:\"real-to-sim\")",
         "cat:cs.CV AND (abs:VLA OR abs:\"vision-language-action\") AND (abs:depth OR abs:3D) AND (abs:noise OR abs:sensor OR abs:simulation OR abs:uncertainty)",
-        "cat:cs.RO AND (abs:\"depth image\" OR abs:pointcloud) AND (abs:policy OR abs:manipulation OR abs:grasping) AND (abs:noise OR abs:sim2real OR abs:simulation)"
-      ]
-    },
-    {
-      "name": "Depth foundation models & metric depth",
-      "queries": [
-        "cat:cs.CV AND (abs:\"depth foundation model\" OR abs:\"metric depth\" OR abs:\"depth estimation\") AND (abs:noise OR abs:robust OR abs:uncertainty)"
-      ]
-    },
-    {
-      "name": "Sensor simulation (robotics)",
-      "queries": [
+        "cat:cs.RO AND (abs:\"depth image\" OR abs:pointcloud) AND (abs:policy OR abs:manipulation OR abs:grasping) AND (abs:noise OR abs:sim2real OR abs:simulation)",
+        "cat:cs.CV AND (abs:\"depth foundation model\" OR abs:\"metric depth\" OR abs:\"depth estimation\") AND (abs:noise OR abs:robust OR abs:uncertainty)",
         "all:\"sensor simulation\" AND cat:cs.RO",
         "cat:cs.RO AND (abs:\"sensor noise\" OR abs:\"noise model\") AND (abs:depth OR abs:camera OR abs:LiDAR)"
       ]
     }
-  ]
+  }
 }
