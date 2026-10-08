@@ -311,5 +311,34 @@
   ],
   "result": "ok",
   "candidates": 9
+ },
+ {
+  "at": "2026-10-08T09:05:22+00:00",
+  "lookback_days": 3,
+  "sources": {
+   "arxiv-rss": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 255
+   },
+   "openalex": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 8
+   },
+   "arxiv-api": {
+    "enabled": false
+   }
+  },
+  "enabled_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "ok_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "result": "ok",
+  "candidates": 8
  }
 ]
