@@ -688,5 +688,34 @@
   ],
   "result": "ok",
   "candidates": 11
+ },
+ {
+  "at": "2026-10-21T07:45:18+00:00",
+  "lookback_days": 3,
+  "sources": {
+   "arxiv-rss": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 230
+   },
+   "openalex": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 4
+   },
+   "arxiv-api": {
+    "enabled": false
+   }
+  },
+  "enabled_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "ok_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "result": "ok",
+  "candidates": 5
  }
 ]
