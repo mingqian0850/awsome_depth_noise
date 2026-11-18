@@ -1,34 +1,5 @@
 [
  {
-  "at": "2026-10-19T07:52:48+00:00",
-  "lookback_days": 3,
-  "sources": {
-   "arxiv-rss": {
-    "enabled": true,
-    "ok": true,
-    "fetched": 181
-   },
-   "openalex": {
-    "enabled": true,
-    "ok": true,
-    "fetched": 6
-   },
-   "arxiv-api": {
-    "enabled": false
-   }
-  },
-  "enabled_sources": [
-   "arxiv-rss",
-   "openalex"
-  ],
-  "ok_sources": [
-   "arxiv-rss",
-   "openalex"
-  ],
-  "result": "ok",
-  "candidates": 5
- },
- {
   "at": "2026-10-20T07:41:07+00:00",
   "lookback_days": 3,
   "sources": {
@@ -865,5 +836,34 @@
   ],
   "result": "ok",
   "candidates": 12
+ },
+ {
+  "at": "2026-11-18T10:16:44+00:00",
+  "lookback_days": 3,
+  "sources": {
+   "arxiv-rss": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 242
+   },
+   "openalex": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 9
+   },
+   "arxiv-api": {
+    "enabled": false
+   }
+  },
+  "enabled_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "ok_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "result": "ok",
+  "candidates": 6
  }
 ]
