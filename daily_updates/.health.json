@@ -1,34 +1,5 @@
 [
  {
-  "at": "2026-10-29T08:36:42+00:00",
-  "lookback_days": 3,
-  "sources": {
-   "arxiv-rss": {
-    "enabled": true,
-    "ok": true,
-    "fetched": 0
-   },
-   "openalex": {
-    "enabled": true,
-    "ok": true,
-    "fetched": 9
-   },
-   "arxiv-api": {
-    "enabled": false
-   }
-  },
-  "enabled_sources": [
-   "arxiv-rss",
-   "openalex"
-  ],
-  "ok_sources": [
-   "arxiv-rss",
-   "openalex"
-  ],
-  "result": "ok",
-  "candidates": 0
- },
- {
   "at": "2026-10-30T08:43:46+00:00",
   "lookback_days": 3,
   "sources": {
@@ -838,6 +809,34 @@
  },
  {
   "at": "2026-11-27T10:57:53+00:00",
+  "lookback_days": 3,
+  "sources": {
+   "arxiv-rss": {
+    "enabled": true,
+    "ok": true,
+    "fetched": 0
+   },
+   "openalex": {
+    "enabled": true,
+    "ok": false,
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+   },
+   "arxiv-api": {
+    "enabled": false
+   }
+  },
+  "enabled_sources": [
+   "arxiv-rss",
+   "openalex"
+  ],
+  "ok_sources": [
+   "arxiv-rss"
+  ],
+  "result": "ok",
+  "candidates": 0
+ },
+ {
+  "at": "2026-11-28T10:34:19+00:00",
   "lookback_days": 3,
   "sources": {
    "arxiv-rss": {
